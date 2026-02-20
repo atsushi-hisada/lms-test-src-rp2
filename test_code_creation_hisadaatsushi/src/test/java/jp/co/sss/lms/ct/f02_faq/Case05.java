@@ -172,10 +172,15 @@ public class Case05 {
 
 		}
 
-		// エビデンスを取得
-		scrollBy("200");
+		// 入力値が見えるように調整
+		scrollTo("150");
+
+		// エビデンスを2枚取得
 		getEvidence(new Object() {
-		}, "keyword_seach_results");
+		}, "keyword_seach_results_01");
+		scrollBy("300");
+		getEvidence(new Object() {
+		}, "keyword_seach_results_02");
 
 	}
 
