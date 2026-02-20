@@ -154,7 +154,7 @@ public class Case05 {
 		WebElement searchBtnElement = webDriver.findElement(By.xpath("//input[@value='検索']"));
 		searchBtnElement.click();
 
-		// 検索結果が表示されるまで待機
+		// ページが遷移するまで待機
 		pageLoadTimeout(5);
 
 		// 検索結果すべて取得
@@ -163,11 +163,11 @@ public class Case05 {
 		// 表示された検索結果それぞれに、検索キーワードが含まれているか確認
 		for (WebElement searchResultElement : searchResultElements) {
 
-			// 回答内容を表示
+			// 検索内容を表示
 			scrollBy("200");
 			searchResultElement.click();
 
-			// 質問または回答内容に検索キーワードが含まれているか確認
+			// 検索内容に検索キーワードが含まれているか確認
 			assertTrue(searchResultElement.getText().contains("研修"));
 
 		}
@@ -188,7 +188,7 @@ public class Case05 {
 		WebElement searchFormElement = webDriver.findElement(By.name("keyword"));
 		assertEquals("研修", searchFormElement.getAttribute("value"));
 
-		// クリアボタンを押下
+		// 検索ボタンを押下
 		scrollTo("0");
 		WebElement formClearBtnElement = webDriver.findElement(By.xpath("//input[@value='クリア']"));
 		formClearBtnElement.click();
