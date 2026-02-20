@@ -158,6 +158,9 @@ public class Case06 {
 		WebElement categoryLinkElement = webDriver.findElement(By.linkText("【研修関係】"));
 		categoryLinkElement.click();
 
+		// 検索結果が表示されるまで待機
+		pageLoadTimeout(5);
+
 		// カテゴリ検索した結果をすべて取得
 		List<WebElement> categorySearchResultElements = webDriver.findElements(By.className("sorting_1"));
 
