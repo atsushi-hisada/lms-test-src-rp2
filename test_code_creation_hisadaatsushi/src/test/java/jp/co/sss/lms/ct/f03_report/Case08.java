@@ -211,7 +211,7 @@ public class Case08 {
 		WebElement impressionsTextElement = impressionsTitleElement.findElement(By.tagName("td"));
 		assertEquals("修正後の所感です。", impressionsTextElement.getText());
 
-		// 所感が修正した内容になっているか確認
+		// 報告内容が修正した内容になっているか確認
 		WebElement reportTitleElement = webDriver.findElement(By.xpath("//tr[contains(., '一週間の振り返り')]"));
 		WebElement reportTextElement = reportTitleElement.findElement(By.tagName("td"));
 		assertEquals("修正後の報告内容です。", reportTextElement.getText());
