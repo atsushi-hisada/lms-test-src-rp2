@@ -3,6 +3,7 @@ package jp.co.sss.lms.ct.f05_exam;
 import static jp.co.sss.lms.ct.util.WebDriverUtils.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -191,6 +192,7 @@ public class Case13 {
 		// アラートのボタンを押下
 		Alert alert = webDriver.switchTo().alert();
 		alert.accept();
+		date = new Date();
 
 		// ページが遷移するまで待機
 		pageLoadTimeout(5);
@@ -220,9 +222,14 @@ public class Case13 {
 		// 試験画面に遷移したことを確認
 		assertEquals("試験【ITリテラシー①】 | LMS", webDriver.getTitle());
 
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH時mm分ss秒");
+		String testDate = sdf.format(date);
+
 		// 試験結果が存在するか確認
-		WebElement dateElement = webDriver.findElement(By.xpath("//td[contains(.,'2026年02月27日')]"));
-		assertTrue(dateElement.getText().contains("2026年02月27日"));
+		List<WebElement> trElements = webDriver.findElements(By.tagName("tr"));
+		WebElement testElement = trElements.getLast();
+		assertTrue(testElement.getText().contains(testDate));
+		assertTrue(testElement.getText().contains("0.0点"));
 
 		// エビデンスを取得
 		scrollBy("500");
