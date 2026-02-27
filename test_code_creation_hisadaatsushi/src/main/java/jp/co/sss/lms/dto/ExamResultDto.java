@@ -28,9 +28,9 @@ public class ExamResultDto {
 	private Integer numOfQuestion;
 	/** 点数 */
 	private double point;
-	/** 時間 */
-	private Long time; // Task.34
-	/** 時間（画面表示用） */
-	private String timeDisp; // Task.34
+	//	/** 時間 */
+	//	private Long time; // Task.34
+	//	/** 時間（画面表示用） */
+	//	private String timeDisp; // Task.34
 
 }
